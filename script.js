@@ -18,15 +18,26 @@ var confirmSpecChar;
 
 // Password guidlines
 
-// Determine number of characters
+// Choose number of characters
 function generatePassword() {
   var confirmLength = (prompt("How many characters would you like? Please enter 8-128:"));
   while(confirmLength < 8 || confirmLength > 128) {
       alert("Password length must be between 8-128 characters try again");
       var confirmLength = (prompt("How many characters would you like? Please enter 8-128:"));
       } 
-}
 
+    // Choose character types
+    var confirmLower = confirm("Include lowercase?");
+    var confirmUpper = confirm("Include uppercase?");
+    var confirmNumber = confirm("Include numbers?");
+    var confirmSpecChar = confirm("Include special characters?")
+      while(confirmUpper === false && confirmLower === false && confirmSpecChar === false && confirmNumber === false) {
+        alert("You must choose at least one character type.");
+        var confirmLower = confirm("Include lowercase?");
+        var confirmUpper = confirm("Include uppercase?");
+        var confirmNumber = confirm("Include numbers?");
+        var confirmSpecChar = confirm("Include special characters?")    
+    } 
 
 // Write password to the #password input
 function writePassword() {
